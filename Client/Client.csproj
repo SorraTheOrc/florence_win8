@@ -116,12 +116,47 @@
       <SubType>Designer</SubType>
     </AppxManifest>
     <None Include="Client_TemporaryKey.pfx" />
+    <None Include="widget\imagePlayer\default.widget.properties" />
+    <None Include="widget\imagePlayer\images\Thumbs.db" />
+    <None Include="widget\imagePlayer\legal\jquery.LICENSE" />
+    <None Include="widget\imagePlayer\legal\jquery.mobile.LICENCE" />
+    <None Include="widget\imagePlayer\style\screen.css.add" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\Logo.png" />
     <Content Include="Assets\SmallLogo.png" />
     <Content Include="Assets\SplashScreen.png" />
     <Content Include="Assets\StoreLogo.png" />
+    <Content Include="widget\imagePlayer\build.xml" />
+    <Content Include="widget\imagePlayer\config.xml" />
+    <Content Include="widget\imagePlayer\content_footer.html" />
+    <Content Include="widget\imagePlayer\content_header.html" />
+    <Content Include="widget\imagePlayer\content_primary.html" />
+    <Content Include="widget\imagePlayer\content_scripts.html" />
+    <Content Include="widget\imagePlayer\content_secondary.html" />
+    <Content Include="widget\imagePlayer\content_styles.html" />
+    <Content Include="widget\imagePlayer\images\032.jpg" />
+    <Content Include="widget\imagePlayer\images\042.jpg" />
+    <Content Include="widget\imagePlayer\images\icon-audio-medium.png" />
+    <Content Include="widget\imagePlayer\images\icon-images-medium.jpg" />
+    <Content Include="widget\imagePlayer\images\icon-info-medium.jpg" />
+    <Content Include="widget\imagePlayer\images\icon-program.svg" />
+    <Content Include="widget\imagePlayer\images\icon-video-medium.jpg" />
+    <Content Include="widget\imagePlayer\images\icon.png" />
+    <Content Include="widget\imagePlayer\images\icon_16x16.png" />
+    <Content Include="widget\imagePlayer\images\icon_32x32.png" />
+    <Content Include="widget\imagePlayer\index.html" />
+    <Content Include="widget\imagePlayer\legal\silk_icons_license.txt" />
+    <Content Include="widget\imagePlayer\lib\jquery-1.8.2.js" />
+    <Content Include="widget\imagePlayer\lib\jquery.mobile-1.2.0.js" />
+    <Content Include="widget\imagePlayer\readme.txt" />
+    <Content Include="widget\imagePlayer\scripts\controller.js" />
+    <Content Include="widget\imagePlayer\style\all.css" />
+    <Content Include="widget\imagePlayer\style\assetPlayer\jquery.mobile-1.2.0.css" />
+    <Content Include="widget\imagePlayer\style\assetPlayer\screen.add.css" />
+    <Content Include="widget\imagePlayer\style\base\screen.add.css" />
+    <Content Include="widget\imagePlayer\style\twoColumn\screen.add.css" />
+    <Content Include="widget\imagePlayer\template_build.xml" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">

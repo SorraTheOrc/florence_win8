@@ -11,7 +11,7 @@
         <DataTemplate x:Key="WidgetDataTemplate">
             <Grid HorizontalAlignment="Left" Height="480" Width="320">
                 <WebView Source="{Binding Source}" 
-                         Height="480" Width="320"
+                         Height="310" Width="310"
                          Grid.Row="1" 
                          HorizontalAlignment="Left"
                          VerticalAlignment="Top"/>

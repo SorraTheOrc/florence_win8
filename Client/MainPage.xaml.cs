@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Client.DataModel;
+using WookieService;
+
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -17,14 +20,20 @@ using Windows.UI.Xaml.Navigation;
 namespace Client
 {
     /// <summary>
-    /// An empty page that can be used on its own or navigated to within a Frame.
+    /// The main page of the folorence App. This page shows the "tile" associated with each widget in the system.
     /// </summary>
     public sealed partial class MainPage : Page
     {
+
+        WidgetDataSource widgetData = null;
+
         public MainPage()
         {
             this.InitializeComponent();
-        }
+
+            widgetData = new WidgetDataSource();
+            WidgetGridView.ItemsSource = widgetData.Widgets;
+            widgetData.load();        }
 
         /// <summary>
         /// Invoked when this page is about to be displayed in a Frame.
@@ -33,6 +42,14 @@ namespace Client
         /// property is typically used to configure the page.</param>
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
+        }
+
+        void WidgetView_WidgetClick(object sender, ItemClickEventArgs e)
+        {
+            // Navigate to the appropriate destination page, configuring the new page
+            // by passing required information as a navigation parameter
+            var guid = ((Widget)e.ClickedItem).getGuid();
+            //this.Frame.Navigate(typeof(WidgetPage), guid);
         }
     }
 }

@@ -19,3 +19,5 @@ Development
 -----------
 
 Florence widgets are widgets built using the templating system in Apache Wookie. To build the widgets in the "widgets" directory you must first checkout Apache Wookie into a directory called wookie alongside your florence_win8 checkout.
+
+The Client application uses the Connector library provided by Apache Wookie.

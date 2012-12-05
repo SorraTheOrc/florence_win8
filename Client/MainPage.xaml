@@ -6,6 +6,18 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
+    
+    <Page.Resources>
+        <DataTemplate x:Key="WidgetDataTemplate">
+            <Grid HorizontalAlignment="Left" Height="480" Width="320">
+                <WebView Source="ms-appx-web:///widget/imagePlayer/index.html" 
+                         Height="480" Width="320"
+                         Grid.Row="1" 
+                         HorizontalAlignment="Left"
+                         VerticalAlignment="Top"/>
+            </Grid>
+        </DataTemplate>
+    </Page.Resources>
 
     <Grid Background="{StaticResource ApplicationPageBackgroundThemeBrush}">
         <Grid.RowDefinitions>
@@ -16,11 +28,12 @@
         <Grid>
             <TextBlock x:Name="pageTitle" Grid.Column="1" Text="Florence" Style="{StaticResource PageHeaderTextStyle}" HorizontalAlignment="Right" Width="1216"/>
         </Grid>
-        <WebView Source="ms-appx-web:///widget/imagePlayer/index.html" 
-                 Height="480" Width="320"
-                 Margin="120,30,0,0" 
-                 Grid.Row="1" 
-                 HorizontalAlignment="Left"
-                 VerticalAlignment="Top"/>
+
+        <GridView x:Name="WidgetGridView" 
+                  SelectionMode="None"
+                  Grid.Row="1" ItemTemplate="{StaticResource WidgetDataTemplate}" 
+                  IsItemClickEnabled="True"
+                  ItemClick="WidgetView_WidgetClick">
+         </GridView>
     </Grid>
 </Page>

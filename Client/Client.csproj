@@ -101,11 +101,16 @@
   </PropertyGroup>
   <ItemGroup>
     <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
+    <ProjectReference Include="..\..\wookie\connector\CSharp\Win8\WookieService\WookieService.csproj">
+      <Project>{50852744-6c5a-4b66-b3b8-5a02acbb1272}</Project>
+      <Name>WookieService</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DataModel\WidgetDataSource.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
@@ -116,6 +121,12 @@
       <SubType>Designer</SubType>
     </AppxManifest>
     <None Include="Client_TemporaryKey.pfx" />
+    <None Include="widget\audioPlayer\assets\Comet_Shoemaker-Levy_9.ogg" />
+    <None Include="widget\audioPlayer\assets\giraffe.ogg" />
+    <None Include="widget\audioPlayer\default.widget.properties" />
+    <None Include="widget\audioPlayer\legal\jquery.LICENSE" />
+    <None Include="widget\audioPlayer\legal\jquery.mobile.LICENCE" />
+    <None Include="widget\audioPlayer\style\screen.css.add" />
     <None Include="widget\imagePlayer\default.widget.properties" />
     <None Include="widget\imagePlayer\images\Thumbs.db" />
     <None Include="widget\imagePlayer\legal\jquery.LICENSE" />
@@ -127,6 +138,34 @@
     <Content Include="Assets\SmallLogo.png" />
     <Content Include="Assets\SplashScreen.png" />
     <Content Include="Assets\StoreLogo.png" />
+    <Content Include="widget\audioPlayer\build.xml" />
+    <Content Include="widget\audioPlayer\config.xml" />
+    <Content Include="widget\audioPlayer\content_footer.html" />
+    <Content Include="widget\audioPlayer\content_header.html" />
+    <Content Include="widget\audioPlayer\content_primary.html" />
+    <Content Include="widget\audioPlayer\content_scripts.html" />
+    <Content Include="widget\audioPlayer\content_secondary.html" />
+    <Content Include="widget\audioPlayer\content_styles.html" />
+    <Content Include="widget\audioPlayer\images\icon-audio-medium.png" />
+    <Content Include="widget\audioPlayer\images\icon-images-medium.jpg" />
+    <Content Include="widget\audioPlayer\images\icon-info-medium.jpg" />
+    <Content Include="widget\audioPlayer\images\icon-program.svg" />
+    <Content Include="widget\audioPlayer\images\icon-video-medium.jpg" />
+    <Content Include="widget\audioPlayer\images\icon.png" />
+    <Content Include="widget\audioPlayer\images\icon_16x16.png" />
+    <Content Include="widget\audioPlayer\images\icon_32x32.png" />
+    <Content Include="widget\audioPlayer\index.html" />
+    <Content Include="widget\audioPlayer\legal\silk_icons_license.txt" />
+    <Content Include="widget\audioPlayer\lib\jquery-1.8.2.js" />
+    <Content Include="widget\audioPlayer\lib\jquery.mobile-1.2.0.js" />
+    <Content Include="widget\audioPlayer\readme.txt" />
+    <Content Include="widget\audioPlayer\scripts\controller.js" />
+    <Content Include="widget\audioPlayer\style\all.css" />
+    <Content Include="widget\audioPlayer\style\assetPlayer\jquery.mobile-1.2.0.css" />
+    <Content Include="widget\audioPlayer\style\assetPlayer\screen.add.css" />
+    <Content Include="widget\audioPlayer\style\base\screen.add.css" />
+    <Content Include="widget\audioPlayer\style\twoColumn\screen.add.css" />
+    <Content Include="widget\audioPlayer\template_build.xml" />
     <Content Include="widget\imagePlayer\build.xml" />
     <Content Include="widget\imagePlayer\config.xml" />
     <Content Include="widget\imagePlayer\content_footer.html" />

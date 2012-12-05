@@ -49,8 +49,7 @@ namespace Client
         {
             // Navigate to the appropriate destination page, configuring the new page
             // by passing required information as a navigation parameter
-            var guid = ((Widget)e.ClickedItem).Guid;
-            //this.Frame.Navigate(typeof(WidgetPage), guid);
+            this.Frame.Navigate(typeof(WidgetPage), (Widget)e.ClickedItem);
         }
     }
 }

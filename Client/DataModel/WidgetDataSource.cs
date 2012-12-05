@@ -40,7 +40,9 @@ namespace Client.DataModel
                 var icon = doc.Element(ns + "icon").Attribute("src").Value;
                 var uid = doc.Attribute("id").Value;
                 var desc = doc.Element(ns + "description").Value;
-                this.Widgets.Add(new Widget(uid, title, desc, icon));
+                var content = doc.Element(ns + "content").Attribute("src").Value;
+                var path = folder.Name;
+                this.Widgets.Add(new Widget(uid, title, desc, icon, path, content));
                 idx++;
             }
         }

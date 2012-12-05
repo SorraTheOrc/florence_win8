@@ -10,7 +10,7 @@
     <Page.Resources>
         <DataTemplate x:Key="WidgetDataTemplate">
             <Grid HorizontalAlignment="Left" Height="480" Width="320">
-                <WebView Source="ms-appx-web:///widget/imagePlayer/index.html" 
+                <WebView Source="{Binding Source}" 
                          Height="480" Width="320"
                          Grid.Row="1" 
                          HorizontalAlignment="Left"

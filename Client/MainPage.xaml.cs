@@ -33,7 +33,8 @@ namespace Client
 
             widgetData = new WidgetDataSource();
             WidgetGridView.ItemsSource = widgetData.Widgets;
-            widgetData.load();        }
+            widgetData.load();
+        }
 
         /// <summary>
         /// Invoked when this page is about to be displayed in a Frame.
@@ -48,7 +49,7 @@ namespace Client
         {
             // Navigate to the appropriate destination page, configuring the new page
             // by passing required information as a navigation parameter
-            var guid = ((Widget)e.ClickedItem).getGuid();
+            var guid = ((Widget)e.ClickedItem).Guid;
             //this.Frame.Navigate(typeof(WidgetPage), guid);
         }
     }

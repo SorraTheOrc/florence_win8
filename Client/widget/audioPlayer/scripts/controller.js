@@ -19,6 +19,13 @@ var audioPlayer_controller = {
      * Update the display
      */
     update:function() { 
+        // Is the viewport large enough for the full view?
+        var viewport = audioPlayer_controller.getViewport();
+        if (viewport.height <= 310  || viewport.width <= 310) {
+            $.mobile.changePage($('#tile'));
+        } else {
+            $.mobile.changePage($('#home'));
+        }
     },
 
    /**
@@ -118,6 +125,7 @@ $('#home').live('pageshow',function(event) {
 $('body').bind('orientationchange',function(event){
     audioPlayer_controller.update();
 })
+
 /*
  * Licensed to the Apache Software Foundation (ASF) under one or more
  * contributor license agreements.  See the NOTICE file distributed with

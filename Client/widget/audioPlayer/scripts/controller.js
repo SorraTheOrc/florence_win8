@@ -343,10 +343,13 @@ var audioPlayer_audio_controller = {
     init:function() { 
 	var assets = [];
 	assets[0] = {
-	    "src":"assets/giraffe.ogg"
+	    "src":"assets/Blind_Blake-Diddie_Wa_Diddie.mp3"
 	};
 	assets[1] = {
-	    "src":"assets/Comet_Shoemaker-Levy_9.ogg"
+	    "src":"assets/I.Allegro.mp3"
+	};
+	assets[1] = {
+	    "src":"assets/ScottJoplin-TheEntertainer1902.mp3"
 	};
 	audioPlayer_asset_controller.setCollection(assets);
     },    

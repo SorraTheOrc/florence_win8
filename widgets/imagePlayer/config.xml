@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <!--
   Licensed to the Apache Software Foundation (ASF) under one or more
   contributor license agreements.  See the NOTICE file distributed with
@@ -28,7 +29,9 @@
   <access origin="${widget.access.origin}"/>  
 <!-- FIXME: need to parameterise features in base template
      so that widgets need not overwrite config.xml -->
-  <feature name="http://jquerymobile.com" required="true"/>
+  <feature name="http://jquerymobile.com" required="true">
+    <param name="version" value="1.2"/>
+  </feature>
   
   <license>
    Copyright 2012 OpenDirective LLP

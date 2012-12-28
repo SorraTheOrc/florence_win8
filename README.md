@@ -15,6 +15,12 @@ of Florence based apps.
 
 This houses all the widgets used in the demo application. These serve to demonstrate the features of the Florence framework.
 
+To deploy widgets into the Client:
+
+ant generate-all-widgets -Dwidget.indclude=INCLUDE_PATTERN
+
+Where INCLUDE_PATTERN is replaced by a pattern that matches the widgets you want to deply. For example, you could use *Player to deploy all the player widgets.
+
 Development
 -----------
 

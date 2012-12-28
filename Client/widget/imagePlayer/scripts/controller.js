@@ -181,8 +181,17 @@ var imagePlayer_asset_controller = {
 	});
     },
     
+    // Set the collection to an array. The "album" should be wither an array or an
+    // object with an assets property which is the required array.
+    //
+    // The array will contain, at least, a src property which contains the src to
+    // use for the HTML image.
     setCollection:function(album){
-	imagePlayer_asset_controller.collection = album;
+        if (album.assets) {
+	    imagePlayer_asset_controller.collection = album.assets;
+        } else {
+	    imagePlayer_asset_controller.collection = album;
+        }
         // FIXME: cache images for faster slideshow. e.g. http://www.anthonymclin.com/code/7-miscellaneous/98-on-demand-image-loading-with-jquery
 	imagePlayer_asset_controller.displayAsset(0);
     },
@@ -342,13 +351,33 @@ $('#home').live('pageinit',function(event) {
 var imagePlayer_images_controller = { 
     init:function() { 
 	// FIXME: album should be created by reading a directory
+        var assets = {
+            "assets": [
+                {
+	            "src":"images/places/032.jpg"
+	        },
+                {
+	            "src":"images/places/042.jpg"
+	        },
+                {
+	            "src":"images/places/eden project.jpg"
+	        },
+                {
+	            "src":"images/places/edenProject.jpg"
+	        },
+
+            ]
+        };
+/*
 	var assets = [];
 	assets[0] = {
-	    "src":"images/032.jpg"
+	    "src":"images/places/032.jpg"
 	};
 	assets[1] = {
-	    "src":"images/042.jpg"
+	    "src":"images/places/042.jpg"
 	};
+*/
+
 	imagePlayer_asset_controller.setCollection(assets);
 	imagePlayer_scanning_controller.scanElements = $('[data-scanOrder]');
     },

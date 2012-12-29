@@ -152,7 +152,8 @@ var audioPlayer_asset_controller = {
     auto: false, // indicates if we are auto playing assets
     staticDuration: 5000, // interval between auto play of static assets (e.g. photo's)
     interval: null, // the interval object that controls the auto player
-    collection: null, // the collection of assets to play
+    albums: null, // the albums of colelctions that can be played
+    collection: null, // the collection of assets currently playing
 
     init:function() { 
 	// register button events
@@ -164,8 +165,8 @@ var audioPlayer_asset_controller = {
 	    audioPlayer_asset_controller.prevAsset();
 	});
 
-	$('#gotoAlbum').click(function() {
-	    alert("gotoAlbum not implemented yet");
+	$('#selectAlbum').click(function() {
+            $.mobile.changePage($("#home"));
 	});
 
 	$('#playPause').click(function() {
@@ -180,19 +181,58 @@ var audioPlayer_asset_controller = {
 	    }
 	});
     },
+
+    initAlbums:function() { 
+        var list = $("#albumList");
+        var albums = audioPlayer_asset_controller.albums;
+        if (albums) {
+            list.empty();
+            $.each(
+                albums,
+                function( intIndex, album ){
+                    list.append(audioPlayer_asset_controller.getAlbumCover(album));
+                    $("#" + album.title).click(function() {
+                        audioPlayer_asset_controller.showAlbum(album);
+                    });
+                }
+            );
+        } else {
+            list.append("Loading Albums...");
+        }
+    },
+
+    getAlbumCover:function(album) {
+      var html = "<li id='" + album.title + "'>";
+      html = html + "<img src='" + album.preview + "' width='120' height='120'/> ";
+      html = html + album.title;
+      html = html + "</a></li>";
+      return $(html);
+    },
+
+    showAlbum:function(album) {
+	audioPlayer_asset_controller.setCollection(album);
+        $.mobile.changePage("#picture");
+    },
+
+    setAlbums:function(albums) {
+	audioPlayer_asset_controller.albums = albums;
+        audioPlayer_asset_controller.initAlbums();
+    },
+
     
-    // Set the collection to an array. The "album" should be wither an array or an
+    // Set the collection, that is the collection being shown at this time
+    // to an array of assets. The "collection" should be either an array or an
     // object with an assets property which is the required array.
     //
     // The array will contain, at least, a src property which contains the src to
     // use for the HTML image.
-    setCollection:function(album){
-        if (album.assets) {
-	    audioPlayer_asset_controller.collection = album.assets;
+    setCollection:function(collection){
+        if (collection.assets) {
+	    audioPlayer_asset_controller.collection = collection.assets;
         } else {
-	    audioPlayer_asset_controller.collection = album;
+	    audioPlayer_asset_controller.collection = collection;
         }
-        // FIXME: cache images for faster slideshow. e.g. http://www.anthonymclin.com/code/7-miscellaneous/98-on-demand-image-loading-with-jquery
+        // TODO: cache images for faster slideshow. e.g. http://www.anthonymclin.com/code/7-miscellaneous/98-on-demand-image-loading-with-jquery
 	audioPlayer_asset_controller.displayAsset(0);
     },
 
@@ -201,24 +241,24 @@ var audioPlayer_asset_controller = {
     },
     
     displayAsset:function(idx) {
-	var album = audioPlayer_asset_controller.getCollection();
-	$('#asset').attr("src", album[idx].src);
+	var collection = audioPlayer_asset_controller.getCollection();
+	$('#asset').attr("src", collection[idx].src);
     },
 
     nextAsset:function() {
-	var album = audioPlayer_asset_controller.getCollection();
+	var collection = audioPlayer_asset_controller.getCollection();
 	audioPlayer_asset_controller.idx += 1;
-        if (audioPlayer_asset_controller.idx >= album.length) { 
+        if (audioPlayer_asset_controller.idx >= collection.length) { 
 	    audioPlayer_asset_controller.idx = 0;
 	};
 	audioPlayer_asset_controller.displayAsset(audioPlayer_asset_controller.idx);
     },
 
     prevAsset:function() {
-	var album = audioPlayer_asset_controller.getCollection();
+	var collection = audioPlayer_asset_controller.getCollection();
 	audioPlayer_asset_controller.idx -= 1;
         if (audioPlayer_asset_controller.idx <0) { 
-	    audioPlayer_asset_controller.idx = album.length - 1;
+	    audioPlayer_asset_controller.idx = collection.length - 1;
 	};
 	audioPlayer_asset_controller.displayAsset(audioPlayer_asset_controller.idx);
     },
@@ -236,8 +276,12 @@ var audioPlayer_asset_controller = {
     }
 };
 
-$('#home').live('pageshow',function(event) { 
+$('#picture').live('pageinit',function(event) { 
   audioPlayer_asset_controller.init(); 
+});
+
+$('#home').live('pageinit',function(event) { 
+  audioPlayer_asset_controller.initAlbums(); 
 });
 
 
@@ -248,7 +292,7 @@ $('#home').live('pageshow',function(event) {
  * widget.
  */ 
 var audioPlayer_scanning_controller = {
-    scanning: true, // indicates if we are currently scanning
+    scanning: false, // indicates if we are currently scanning
     delay: 1000, // time in milliseconds between focus change
     interval: null, // The interval object controlling the scan
     scanElements: null, // The elements to scan over
@@ -256,7 +300,9 @@ var audioPlayer_scanning_controller = {
 
     init:function() {
         audioPlayer_scanning_controller.scanElements = $('[data-scanOrder]');
-	audioPlayer_scanning_controller.startScanning();
+        if (audioPlayer_scanning_controller.scanning) {
+	    audioPlayer_scanning_controller.startScanning();
+        };
     },
 
     /**
@@ -350,21 +396,37 @@ $('#home').live('pageinit',function(event) {
 
 var audioPlayer_audio_controller = { 
     init:function() { 
-	var assets = [];
-	assets[0] = {
-	    "src":"assets/Blind_Blake-Diddie_Wa_Diddie.mp3"
-	};
-	assets[1] = {
-	    "src":"assets/I.Allegro.mp3"
-	};
-	assets[1] = {
-	    "src":"assets/ScottJoplin-TheEntertainer1902.mp3"
-	};
-	audioPlayer_asset_controller.setCollection(assets);
+	// FIXME: album should be created by reading a directory
+        var albums = {
+            "classical": {
+                "title": "Classical",
+                "preview": null,
+                "assets": [
+                    {
+	                "src":"assets/Blind_Blake-Diddie_Wa_Diddie.mp3"
+	            },
+                    {
+                        "src":"assets/I.Allegro.mp3"
+                    }
+
+                ]
+            },
+            "soundtrack": {
+                "title": "Soundtrack",
+                "preview": null,
+                "assets": [
+                    {
+	                "src":"assets/ScottJoplin-TheEntertainer1902.mp3"
+	            }
+                ]
+            }
+        }
+	audioPlayer_asset_controller.setAlbums(albums);
+	audioPlayer_scanning_controller.scanElements = $('[data-scanOrder]');
     },    
 };
 
-$('#home').live('pageshow',function(event) { 
+$('#home').live('pageinit',function(event) { 
   audioPlayer_audio_controller.init(); 
 });
 

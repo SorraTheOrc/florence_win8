@@ -152,7 +152,8 @@ var imagePlayer_asset_controller = {
     auto: false, // indicates if we are auto playing assets
     staticDuration: 5000, // interval between auto play of static assets (e.g. photo's)
     interval: null, // the interval object that controls the auto player
-    collection: null, // the collection of assets to play
+    albums: null, // the albums of colelctions that can be played
+    collection: null, // the collection of assets currently playing
 
     init:function() { 
 	// register button events
@@ -164,8 +165,8 @@ var imagePlayer_asset_controller = {
 	    imagePlayer_asset_controller.prevAsset();
 	});
 
-	$('#gotoAlbum').click(function() {
-	    alert("gotoAlbum not implemented yet");
+	$('#selectAlbum').click(function() {
+            $.mobile.changePage($("#home"));
 	});
 
 	$('#playPause').click(function() {
@@ -180,19 +181,58 @@ var imagePlayer_asset_controller = {
 	    }
 	});
     },
+
+    initAlbums:function() { 
+        var list = $("#albumList");
+        var albums = imagePlayer_asset_controller.albums;
+        if (albums) {
+            list.empty();
+            $.each(
+                albums,
+                function( intIndex, album ){
+                    list.append(imagePlayer_asset_controller.getAlbumCover(album));
+                    $("#" + album.title).click(function() {
+                        imagePlayer_asset_controller.showAlbum(album);
+                    });
+                }
+            );
+        } else {
+            list.append("Loading Albums...");
+        }
+    },
+
+    getAlbumCover:function(album) {
+      var html = "<li id='" + album.title + "'>";
+      html = html + "<img src='" + album.preview + "' width='120' height='120'/> ";
+      html = html + album.title;
+      html = html + "</a></li>";
+      return $(html);
+    },
+
+    showAlbum:function(album) {
+	imagePlayer_asset_controller.setCollection(album);
+        $.mobile.changePage("#picture");
+    },
+
+    setAlbums:function(albums) {
+	imagePlayer_asset_controller.albums = albums;
+        imagePlayer_asset_controller.initAlbums();
+    },
+
     
-    // Set the collection to an array. The "album" should be wither an array or an
+    // Set the collection, that is the collection being shown at this time
+    // to an array of assets. The "collection" should be either an array or an
     // object with an assets property which is the required array.
     //
     // The array will contain, at least, a src property which contains the src to
     // use for the HTML image.
-    setCollection:function(album){
-        if (album.assets) {
-	    imagePlayer_asset_controller.collection = album.assets;
+    setCollection:function(collection){
+        if (collection.assets) {
+	    imagePlayer_asset_controller.collection = collection.assets;
         } else {
-	    imagePlayer_asset_controller.collection = album;
+	    imagePlayer_asset_controller.collection = collection;
         }
-        // FIXME: cache images for faster slideshow. e.g. http://www.anthonymclin.com/code/7-miscellaneous/98-on-demand-image-loading-with-jquery
+        // TODO: cache images for faster slideshow. e.g. http://www.anthonymclin.com/code/7-miscellaneous/98-on-demand-image-loading-with-jquery
 	imagePlayer_asset_controller.displayAsset(0);
     },
 
@@ -201,24 +241,24 @@ var imagePlayer_asset_controller = {
     },
     
     displayAsset:function(idx) {
-	var album = imagePlayer_asset_controller.getCollection();
-	$('#asset').attr("src", album[idx].src);
+	var collection = imagePlayer_asset_controller.getCollection();
+	$('#asset').attr("src", collection[idx].src);
     },
 
     nextAsset:function() {
-	var album = imagePlayer_asset_controller.getCollection();
+	var collection = imagePlayer_asset_controller.getCollection();
 	imagePlayer_asset_controller.idx += 1;
-        if (imagePlayer_asset_controller.idx >= album.length) { 
+        if (imagePlayer_asset_controller.idx >= collection.length) { 
 	    imagePlayer_asset_controller.idx = 0;
 	};
 	imagePlayer_asset_controller.displayAsset(imagePlayer_asset_controller.idx);
     },
 
     prevAsset:function() {
-	var album = imagePlayer_asset_controller.getCollection();
+	var collection = imagePlayer_asset_controller.getCollection();
 	imagePlayer_asset_controller.idx -= 1;
         if (imagePlayer_asset_controller.idx <0) { 
-	    imagePlayer_asset_controller.idx = album.length - 1;
+	    imagePlayer_asset_controller.idx = collection.length - 1;
 	};
 	imagePlayer_asset_controller.displayAsset(imagePlayer_asset_controller.idx);
     },
@@ -236,8 +276,12 @@ var imagePlayer_asset_controller = {
     }
 };
 
-$('#home').live('pageshow',function(event) { 
+$('#picture').live('pageinit',function(event) { 
   imagePlayer_asset_controller.init(); 
+});
+
+$('#home').live('pageinit',function(event) { 
+  imagePlayer_asset_controller.initAlbums(); 
 });
 
 
@@ -248,7 +292,7 @@ $('#home').live('pageshow',function(event) {
  * widget.
  */ 
 var imagePlayer_scanning_controller = {
-    scanning: true, // indicates if we are currently scanning
+    scanning: false, // indicates if we are currently scanning
     delay: 1000, // time in milliseconds between focus change
     interval: null, // The interval object controlling the scan
     scanElements: null, // The elements to scan over
@@ -256,7 +300,9 @@ var imagePlayer_scanning_controller = {
 
     init:function() {
         imagePlayer_scanning_controller.scanElements = $('[data-scanOrder]');
-	imagePlayer_scanning_controller.startScanning();
+        if (imagePlayer_scanning_controller.scanning) {
+	    imagePlayer_scanning_controller.startScanning();
+        };
     },
 
     /**
@@ -351,40 +397,59 @@ $('#home').live('pageinit',function(event) {
 var imagePlayer_images_controller = { 
     init:function() { 
 	// FIXME: album should be created by reading a directory
-        var assets = {
-            "assets": [
-                {
-	            "src":"images/places/032.jpg"
-	        },
-                {
-	            "src":"images/places/042.jpg"
-	        },
-                {
-	            "src":"images/places/eden project.jpg"
-	        },
-                {
-	            "src":"images/places/edenProject.jpg"
-	        },
-
-            ]
-        };
-/*
-	var assets = [];
-	assets[0] = {
-	    "src":"images/places/032.jpg"
-	};
-	assets[1] = {
-	    "src":"images/places/042.jpg"
-	};
-*/
-
-	imagePlayer_asset_controller.setCollection(assets);
+        var albums = {
+            "places": {
+                "title": "Places",
+                "preview": "images/places/032.jpg",
+                "assets": [
+                    {
+	                "src":"images/places/032.jpg"
+	            },
+                    {
+	                "src":"images/places/042.jpg"
+	            },
+                    {
+	                "src":"images/places/eden project.jpg"
+	            },
+                    {
+	                "src":"images/places/edenProject.jpg"
+	            }
+                ]
+            },
+            "beeKeeping": {
+                "title": "Bees",
+                "preview": "images/beeKeeping/3045715262_acbb1f9b60_z.jpg",
+                "assets": [
+                    {
+	                "src":"images/beeKeeping/3045715262_acbb1f9b60_z.jpg"
+	            },
+                    {
+	                "src":"images/beeKeeping/BeeFindsPollen.jpg"
+	            }
+                ]
+            },
+            "vehicles": {
+                "title": "Vehicles",
+                "preview": "images/vehicle/11919_wpm_hires.jpg",
+                "assets": [
+                    {
+	                "src":"images/vehicle/11919_wpm_hires.jpg"
+	            },
+                    {
+	                "src":"images/vehicle/14021_wpm_hires.jpg"
+	            },
+                    {
+	                "src":"images/vehicle/7863_wpm_hires.jpg"
+	            },
+                ]
+            }
+        }
+	imagePlayer_asset_controller.setAlbums(albums);
 	imagePlayer_scanning_controller.scanElements = $('[data-scanOrder]');
     },
-
 };
 
-$('#home').live('pageshow',function(event) { 
+$('#home').live('pageinit',function(event) { 
   imagePlayer_images_controller.init(); 
 });
 

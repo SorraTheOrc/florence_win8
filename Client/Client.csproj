@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -130,7 +130,10 @@
     <None Include="widget\audioPlayer\legal\jquery.mobile.LICENCE" />
     <None Include="widget\audioPlayer\style\screen.css.add" />
     <None Include="widget\imagePlayer\default.widget.properties" />
+    <None Include="widget\imagePlayer\images\beeKeeping\Thumbs.db" />
+    <None Include="widget\imagePlayer\images\places\Thumbs.db" />
     <None Include="widget\imagePlayer\images\Thumbs.db" />
+    <None Include="widget\imagePlayer\images\vehicle\Thumbs.db" />
     <None Include="widget\imagePlayer\legal\jquery.LICENSE" />
     <None Include="widget\imagePlayer\legal\jquery.mobile.LICENCE" />
     <None Include="widget\imagePlayer\style\screen.css.add" />
@@ -140,6 +143,10 @@
     <Content Include="Assets\SmallLogo.png" />
     <Content Include="Assets\SplashScreen.png" />
     <Content Include="Assets\StoreLogo.png" />
+    <Page Include="WidgetPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Content Include="widget\audioPlayer\assets\Blind_Blake-Diddie_Wa_Diddie.mp3" />
     <Content Include="widget\audioPlayer\assets\I.Allegro.mp3" />
     <Content Include="widget\audioPlayer\assets\readme.txt" />
@@ -180,8 +187,8 @@
     <Content Include="widget\imagePlayer\content_scripts.html" />
     <Content Include="widget\imagePlayer\content_secondary.html" />
     <Content Include="widget\imagePlayer\content_styles.html" />
-    <Content Include="widget\imagePlayer\images\032.jpg" />
-    <Content Include="widget\imagePlayer\images\042.jpg" />
+    <Content Include="widget\imagePlayer\images\beeKeeping\3045715262_acbb1f9b60_z.jpg" />
+    <Content Include="widget\imagePlayer\images\beeKeeping\BeeFindsPollen.jpg" />
     <Content Include="widget\imagePlayer\images\icon-audio-medium.png" />
     <Content Include="widget\imagePlayer\images\icon-images-medium.jpg" />
     <Content Include="widget\imagePlayer\images\icon-info-medium.jpg" />
@@ -190,6 +197,13 @@
     <Content Include="widget\imagePlayer\images\icon.png" />
     <Content Include="widget\imagePlayer\images\icon_16x16.png" />
     <Content Include="widget\imagePlayer\images\icon_32x32.png" />
+    <Content Include="widget\imagePlayer\images\places\032.jpg" />
+    <Content Include="widget\imagePlayer\images\places\042.jpg" />
+    <Content Include="widget\imagePlayer\images\places\eden project.jpg" />
+    <Content Include="widget\imagePlayer\images\places\edenProject.jpg" />
+    <Content Include="widget\imagePlayer\images\vehicle\11919_wpm_hires.jpg" />
+    <Content Include="widget\imagePlayer\images\vehicle\14021_wpm_hires.jpg" />
+    <Content Include="widget\imagePlayer\images\vehicle\7863_wpm_hires.jpg" />
     <Content Include="widget\imagePlayer\index.html" />
     <Content Include="widget\imagePlayer\legal\silk_icons_license.txt" />
     <Content Include="widget\imagePlayer\lib\jquery-1.8.2.js" />

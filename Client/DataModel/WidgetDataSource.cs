@@ -46,5 +46,21 @@ namespace Client.DataModel
                 idx++;
             }
         }
+
+        /**
+         * Get the widget with a given UID
+         */
+        internal Widget get(string uid)
+        {
+            Widget widget = null;
+            foreach (Widget w in this.Widgets) {
+                if (w.Guid.Equals(uid))
+                {
+                    widget = w;
+                    break;
+                }
+            };
+            return widget;
+        }
     }
 }

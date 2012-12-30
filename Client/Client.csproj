@@ -173,6 +173,7 @@
     <Content Include="widget\audioPlayer\lib\jquery.mobile-1.2.0.js" />
     <Content Include="widget\audioPlayer\readme.txt" />
     <Content Include="widget\audioPlayer\scripts\controller.js" />
+    <Content Include="widget\audioPlayer\scripts\widget_api.js" />
     <Content Include="widget\audioPlayer\style\all.css" />
     <Content Include="widget\audioPlayer\style\assetPlayer\jquery.mobile-1.2.0.css" />
     <Content Include="widget\audioPlayer\style\assetPlayer\screen.add.css" />
@@ -210,6 +211,7 @@
     <Content Include="widget\imagePlayer\lib\jquery.mobile-1.2.0.js" />
     <Content Include="widget\imagePlayer\readme.txt" />
     <Content Include="widget\imagePlayer\scripts\controller.js" />
+    <Content Include="widget\imagePlayer\scripts\widget_api.js" />
     <Content Include="widget\imagePlayer\style\all.css" />
     <Content Include="widget\imagePlayer\style\assetPlayer\jquery.mobile-1.2.0.css" />
     <Content Include="widget\imagePlayer\style\assetPlayer\screen.add.css" />

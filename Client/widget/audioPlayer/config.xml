@@ -15,7 +15,7 @@
   limitations under the License.
 -->
 <widget xmlns="http://www.w3.org/ns/widgets"
-	id="http://maavis.opendirective.net/widgets/audioPlayer"
+	id="http://florence.opendirective.net/widgets/audioPlayer"
 	version="0.1"
         width="320"
         height="480"

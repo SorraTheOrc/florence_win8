@@ -103,22 +103,7 @@ var imagePlayer_controller = {
     }
 };
 
-/**
- * Provides a basic shim for opening the widget without a widget object (e.g. directly in browsers)
- */
-if (!window.widget){
-    window.widget = {};
-}
-
-/**
- * Adds in the "proxify" method if it isn't in the widget object, e.g. as we're opening the widget
- * directly in a browser, or using a widget runtime other than Wookie e.g. Opera, PhoneGap etc
- */
-if (!window.widget.proxify){
-    window.widget.proxify = function(url){ return url };
-}
-
-$('#home').live('pageshow',function(event) {
+$('#home').live('pageinit',function(event) {
    imagePlayer_controller.init(); 
 });
 
@@ -394,6 +379,12 @@ $('#home').live('pageinit',function(event) {
    imagePlayer_twoColumn_controller.init();
 })
 
+$('#tile').live('pageinit',function(event) { 
+    $('#tile').click(function() {
+        window.widget.views.openUrl("http://florence.opendirective.net/widgets/imagePlayer", null, "_blank");
+    });
+});
+
 var imagePlayer_images_controller = { 
     init:function() { 
 	// FIXME: album should be created by reading a directory
@@ -452,4 +443,5 @@ var imagePlayer_images_controller = {
 $('#home').live('pageinit',function(event) { 
   imagePlayer_images_controller.init(); 
 });
+    
 

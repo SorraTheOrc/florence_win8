@@ -33,3 +33,4 @@ var ${widget.shortname}_audio_controller = {
 $('#home').live('pageinit',function(event) { 
   ${widget.shortname}_audio_controller.init(); 
 });
+

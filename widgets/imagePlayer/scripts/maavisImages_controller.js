@@ -56,3 +56,4 @@ var ${widget.shortname}_images_controller = {
 $('#home').live('pageinit',function(event) { 
   ${widget.shortname}_images_controller.init(); 
 });
+    

@@ -14,7 +14,8 @@
                          Height="310" Width="310"
                          Grid.Row="1" 
                          HorizontalAlignment="Left"
-                         VerticalAlignment="Top"/>
+                         VerticalAlignment="Top" 
+                         ScriptNotify="WidgetView_OpenUrl"/>
             </Grid>
         </DataTemplate>
     </Page.Resources>

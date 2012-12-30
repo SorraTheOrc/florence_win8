@@ -30,7 +30,7 @@ namespace Client
         public MainPage()
         {
             this.InitializeComponent();
-
+            
             widgetData = new WidgetDataSource();
             WidgetGridView.ItemsSource = widgetData.Widgets;
             widgetData.load();
@@ -50,6 +50,12 @@ namespace Client
             // Navigate to the appropriate destination page, configuring the new page
             // by passing required information as a navigation parameter
             this.Frame.Navigate(typeof(WidgetPage), (Widget)e.ClickedItem);
+        }
+
+        void WidgetView_OpenUrl(object sender, NotifyEventArgs e)
+        {
+            Widget widget = this.widgetData.get(e.Value);
+            this.Frame.Navigate(typeof(WidgetPage), widget);
         }
     }
 }

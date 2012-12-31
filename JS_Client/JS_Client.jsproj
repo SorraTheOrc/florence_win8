@@ -1,0 +1,163 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|AnyCPU">
+      <Configuration>Debug</Configuration>
+      <Platform>AnyCPU</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|ARM">
+      <Configuration>Debug</Configuration>
+      <Platform>ARM</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x86">
+      <Configuration>Debug</Configuration>
+      <Platform>x86</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|AnyCPU">
+      <Configuration>Release</Configuration>
+      <Platform>AnyCPU</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|ARM">
+      <Configuration>Release</Configuration>
+      <Platform>ARM</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x86">
+      <Configuration>Release</Configuration>
+      <Platform>x86</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>4c85785e-6177-44c5-a402-04c7e0a567c8</ProjectGuid>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '11.0'">
+    <VisualStudioVersion>11.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\$(WMSJSProjectDirectory)\Microsoft.VisualStudio.$(WMSJSProject).Default.props" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\$(WMSJSProjectDirectory)\Microsoft.VisualStudio.$(WMSJSProject).props" />
+  <PropertyGroup>
+    <TargetPlatformIdentifier>Windows</TargetPlatformIdentifier>
+    <TargetPlatformVersion>8.0</TargetPlatformVersion>
+    <DefaultLanguage>en-US</DefaultLanguage>
+    <PackageCertificateKeyFile>App1_TemporaryKey.pfx</PackageCertificateKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <AppxManifest Include="package.appxmanifest">
+      <SubType>Designer</SubType>
+    </AppxManifest>
+    <Content Include="default.html" />
+    <Content Include="images\logo.png" />
+    <Content Include="images\smalllogo.png" />
+    <Content Include="images\splashscreen.png" />
+    <Content Include="images\storelogo.png" />
+    <Content Include="js\default.js" />
+    <Content Include="css\default.css" />
+    <Content Include="widget\audioPlayer\assets\Blind_Blake-Diddie_Wa_Diddie.mp3" />
+    <Content Include="widget\audioPlayer\assets\I.Allegro.mp3" />
+    <Content Include="widget\audioPlayer\assets\readme.txt" />
+    <Content Include="widget\audioPlayer\assets\ScottJoplin-TheEntertainer1902.mp3" />
+    <Content Include="widget\audioPlayer\build.xml" />
+    <Content Include="widget\audioPlayer\config.xml" />
+    <Content Include="widget\audioPlayer\content_footer.html" />
+    <Content Include="widget\audioPlayer\content_header.html" />
+    <Content Include="widget\audioPlayer\content_primary.html" />
+    <Content Include="widget\audioPlayer\content_scripts.html" />
+    <Content Include="widget\audioPlayer\content_secondary.html" />
+    <Content Include="widget\audioPlayer\content_styles.html" />
+    <Content Include="widget\audioPlayer\default.widget.properties" />
+    <Content Include="widget\audioPlayer\images\icon-audio-medium.png" />
+    <Content Include="widget\audioPlayer\images\icon-images-medium.jpg" />
+    <Content Include="widget\audioPlayer\images\icon-info-medium.jpg" />
+    <Content Include="widget\audioPlayer\images\icon-program.svg" />
+    <Content Include="widget\audioPlayer\images\icon-video-medium.jpg" />
+    <Content Include="widget\audioPlayer\images\icon.png" />
+    <Content Include="widget\audioPlayer\images\icon_16x16.png" />
+    <Content Include="widget\audioPlayer\images\icon_32x32.png" />
+    <Content Include="widget\audioPlayer\index.html" />
+    <Content Include="widget\audioPlayer\legal\jquery.LICENSE" />
+    <Content Include="widget\audioPlayer\legal\jquery.mobile.LICENCE" />
+    <Content Include="widget\audioPlayer\legal\silk_icons_license.txt" />
+    <Content Include="widget\audioPlayer\lib\jquery-1.8.2.js" />
+    <Content Include="widget\audioPlayer\lib\jquery.mobile-1.2.0.js" />
+    <Content Include="widget\audioPlayer\readme.txt" />
+    <Content Include="widget\audioPlayer\scripts\controller.js" />
+    <Content Include="widget\audioPlayer\scripts\widget_api.js" />
+    <Content Include="widget\audioPlayer\style\all.css" />
+    <Content Include="widget\audioPlayer\style\assetPlayer\jquery.mobile-1.2.0.css" />
+    <Content Include="widget\audioPlayer\style\assetPlayer\screen.add.css" />
+    <Content Include="widget\audioPlayer\style\base\screen.add.css" />
+    <Content Include="widget\audioPlayer\style\screen.css.add" />
+    <Content Include="widget\audioPlayer\style\twoColumn\screen.add.css" />
+    <Content Include="widget\audioPlayer\template_build.xml" />
+    <Content Include="widget\imagePlayer\build.xml" />
+    <Content Include="widget\imagePlayer\config.xml" />
+    <Content Include="widget\imagePlayer\content_footer.html" />
+    <Content Include="widget\imagePlayer\content_header.html" />
+    <Content Include="widget\imagePlayer\content_primary.html" />
+    <Content Include="widget\imagePlayer\content_scripts.html" />
+    <Content Include="widget\imagePlayer\content_secondary.html" />
+    <Content Include="widget\imagePlayer\content_styles.html" />
+    <Content Include="widget\imagePlayer\default.widget.properties" />
+    <Content Include="widget\imagePlayer\images\beeKeeping\3045715262_acbb1f9b60_z.jpg" />
+    <Content Include="widget\imagePlayer\images\beeKeeping\BeeFindsPollen.jpg" />
+    <Content Include="widget\imagePlayer\images\beeKeeping\Thumbs.db" />
+    <Content Include="widget\imagePlayer\images\icon-audio-medium.png" />
+    <Content Include="widget\imagePlayer\images\icon-images-medium.jpg" />
+    <Content Include="widget\imagePlayer\images\icon-info-medium.jpg" />
+    <Content Include="widget\imagePlayer\images\icon-program.svg" />
+    <Content Include="widget\imagePlayer\images\icon-video-medium.jpg" />
+    <Content Include="widget\imagePlayer\images\icon.png" />
+    <Content Include="widget\imagePlayer\images\icon_16x16.png" />
+    <Content Include="widget\imagePlayer\images\icon_32x32.png" />
+    <Content Include="widget\imagePlayer\images\places\032.jpg" />
+    <Content Include="widget\imagePlayer\images\places\042.jpg" />
+    <Content Include="widget\imagePlayer\images\places\eden project.jpg" />
+    <Content Include="widget\imagePlayer\images\places\edenProject.jpg" />
+    <Content Include="widget\imagePlayer\images\places\Thumbs.db" />
+    <Content Include="widget\imagePlayer\images\Thumbs.db" />
+    <Content Include="widget\imagePlayer\images\vehicle\11919_wpm_hires.jpg" />
+    <Content Include="widget\imagePlayer\images\vehicle\14021_wpm_hires.jpg" />
+    <Content Include="widget\imagePlayer\images\vehicle\7863_wpm_hires.jpg" />
+    <Content Include="widget\imagePlayer\images\vehicle\Thumbs.db" />
+    <Content Include="widget\imagePlayer\index.html" />
+    <Content Include="widget\imagePlayer\legal\jquery.LICENSE" />
+    <Content Include="widget\imagePlayer\legal\jquery.mobile.LICENCE" />
+    <Content Include="widget\imagePlayer\legal\silk_icons_license.txt" />
+    <Content Include="widget\imagePlayer\lib\jquery-1.8.2.js" />
+    <Content Include="widget\imagePlayer\lib\jquery.mobile-1.2.0.js" />
+    <Content Include="widget\imagePlayer\readme.txt" />
+    <Content Include="widget\imagePlayer\scripts\controller.js" />
+    <Content Include="widget\imagePlayer\scripts\widget_api.js" />
+    <Content Include="widget\imagePlayer\style\all.css" />
+    <Content Include="widget\imagePlayer\style\assetPlayer\jquery.mobile-1.2.0.css" />
+    <Content Include="widget\imagePlayer\style\assetPlayer\screen.add.css" />
+    <Content Include="widget\imagePlayer\style\base\screen.add.css" />
+    <Content Include="widget\imagePlayer\style\screen.css.add" />
+    <Content Include="widget\imagePlayer\style\twoColumn\screen.add.css" />
+    <Content Include="widget\imagePlayer\template_build.xml" />
+    <None Include="App1_TemporaryKey.pfx" />
+  </ItemGroup>
+  <ItemGroup>
+    <SDKReference Include="Microsoft.WinJS.1.0, Version=1.0" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\$(WMSJSProjectDirectory)\Microsoft.VisualStudio.$(WMSJSProject).targets" />
+  <!-- To modify your build process, add your task inside one of the targets below then uncomment
+       that target and the DisableFastUpToDateCheck PropertyGroup. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  <PropertyGroup>
+    <DisableFastUpToDateCheck>true</DisableFastUpToDateCheck>
+  </PropertyGroup>
+  -->
+</Project>

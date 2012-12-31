@@ -139,7 +139,7 @@
     <Content Include="widget\imagePlayer\style\screen.css.add" />
     <Content Include="widget\imagePlayer\style\twoColumn\screen.add.css" />
     <Content Include="widget\imagePlayer\template_build.xml" />
-    <None Include="App1_TemporaryKey.pfx" />
+    <None Include="JS_Client_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
     <SDKReference Include="Microsoft.WinJS.1.0, Version=1.0" />

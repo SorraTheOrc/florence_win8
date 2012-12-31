@@ -108,7 +108,6 @@
     <Content Include="widget\imagePlayer\default.widget.properties" />
     <Content Include="widget\imagePlayer\images\beeKeeping\3045715262_acbb1f9b60_z.jpg" />
     <Content Include="widget\imagePlayer\images\beeKeeping\BeeFindsPollen.jpg" />
-    <Content Include="widget\imagePlayer\images\beeKeeping\Thumbs.db" />
     <Content Include="widget\imagePlayer\images\icon-audio-medium.png" />
     <Content Include="widget\imagePlayer\images\icon-images-medium.jpg" />
     <Content Include="widget\imagePlayer\images\icon-info-medium.jpg" />
@@ -121,12 +120,9 @@
     <Content Include="widget\imagePlayer\images\places\042.jpg" />
     <Content Include="widget\imagePlayer\images\places\eden project.jpg" />
     <Content Include="widget\imagePlayer\images\places\edenProject.jpg" />
-    <Content Include="widget\imagePlayer\images\places\Thumbs.db" />
-    <Content Include="widget\imagePlayer\images\Thumbs.db" />
     <Content Include="widget\imagePlayer\images\vehicle\11919_wpm_hires.jpg" />
     <Content Include="widget\imagePlayer\images\vehicle\14021_wpm_hires.jpg" />
     <Content Include="widget\imagePlayer\images\vehicle\7863_wpm_hires.jpg" />
-    <Content Include="widget\imagePlayer\images\vehicle\Thumbs.db" />
     <Content Include="widget\imagePlayer\index.html" />
     <Content Include="widget\imagePlayer\legal\jquery.LICENSE" />
     <Content Include="widget\imagePlayer\legal\jquery.mobile.LICENCE" />

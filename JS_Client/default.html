@@ -11,9 +11,19 @@
 
     <!-- Florence Client references -->
     <link href="/css/default.css" rel="stylesheet" />
+    <script src="/js/widgetDataSource.js"></script>
     <script src="/js/default.js"></script>
+    <script src="/js/navigator.js"></script>
+
 </head>
 <body>
-    <iframe src="/widget/imagePlayer/index.html" height="480" width="1240"></iframe>
+    <div id="contenthost" data-win-control="Application.PageControlNavigator" data-win-options="{home: '/pages/home/home.html'}">
+        
+    </div>
+    <!-- <div id="appbar" data-win-control="WinJS.UI.AppBar">
+        <button data-win-control="WinJS.UI.AppBarCommand" data-win-options="{id:'cmd', label:'Command', icon:'placeholder'}" type="button"></button>
+    </div> -->
+
 </body>
 </html>
+

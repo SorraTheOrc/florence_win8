@@ -60,6 +60,13 @@
     <Content Include="images\storelogo.png" />
     <Content Include="js\default.js" />
     <Content Include="css\default.css" />
+    <Content Include="js\navigator.js" />
+    <Content Include="pages\home\home.css" />
+    <Content Include="pages\home\home.html" />
+    <Content Include="pages\home\home.js" />
+    <Content Include="pages\widget\widget.css" />
+    <Content Include="pages\widget\widget.html" />
+    <Content Include="pages\widget\widget.js" />
     <Content Include="widget\audioPlayer\assets\Blind_Blake-Diddie_Wa_Diddie.mp3" />
     <Content Include="widget\audioPlayer\assets\I.Allegro.mp3" />
     <Content Include="widget\audioPlayer\assets\readme.txt" />

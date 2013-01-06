@@ -1,14 +1,15 @@
-﻿// For an introduction to the Blank template, see the following documentation:
-// http://go.microsoft.com/fwlink/?LinkId=232509
-(function () {
+﻿(function () {
     "use strict";
+
+    WinJS.Binding.optimizeBindingReferences = true;
 
     WinJS.Binding.optimizeBindingReferences = true;
 
     var app = WinJS.Application;
     var activation = Windows.ApplicationModel.Activation;
+    var nav = WinJS.Navigation;
 
-    app.onactivated = function (args) {
+    app.addEventListener("activated", function (args) {
         if (args.detail.kind === activation.ActivationKind.launch) {
             if (args.detail.previousExecutionState !== activation.ApplicationExecutionState.terminated) {
                 // TODO: This application has been newly launched. Initialize
@@ -17,9 +18,20 @@
                 // TODO: This application has been reactivated from suspension.
                 // Restore application state here.
             }
-            args.setPromise(WinJS.UI.processAll());
+
+            if (app.sessionState.history) {
+                nav.history = app.sessionState.history;
+            }
+            args.setPromise(WinJS.UI.processAll().then(function () {
+                if (nav.location) {
+                    nav.history.current.initialPlaceholder = true;
+                    return nav.navigate(nav.location, nav.state);
+                } else {
+                    return nav.navigate(Application.navigator.home);
+                }
+            }));
         }
-    };
+    });
 
     app.oncheckpoint = function (args) {
         // TODO: This application is about to be suspended. Save any state
@@ -31,4 +43,13 @@
     };
 
     app.start();
+
+    function receiveMessage(e) {
+        if (e.origin === "ms-appx-web://" + document.location.host) {
+            WinJS.Navigation.navigate("/pages/widget/widget.html", e.data);
+        }
+    }
+        
+
+    window.addEventListener("message", receiveMessage, false);
 })();

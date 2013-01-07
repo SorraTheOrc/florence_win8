@@ -13,7 +13,12 @@
     /// this is BAD!!!!
     window.setSrc = WinJS.Binding.initializer(function (src, srcProps, dest) {
         var src = WinJS.Utilities.getMember(srcProps.join('.'), src);
-        dest.src = src;
+        // check we are loading from a local resource, throw an error if not
+        if (src.indexOf("ms-appx") == 0) {
+            dest.src = src;
+        } else {
+            throw "Cannot load external widgets, see ";
+        }
     });
 
     var widgetList;

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|AnyCPU">
@@ -102,7 +102,7 @@
     <Content Include="widget\audioPlayer\style\assetPlayer\jquery.mobile-1.2.0.css" />
     <Content Include="widget\audioPlayer\style\assetPlayer\screen.add.css" />
     <Content Include="widget\audioPlayer\style\base\screen.add.css" />
-    <Content Include="widget\audioPlayer\style\screen.css.add" />
+    <Content Include="widget\audioPlayer\style\screen.add.css" />
     <Content Include="widget\audioPlayer\style\twoColumn\screen.add.css" />
     <Content Include="widget\audioPlayer\template_build.xml" />
     <Content Include="widget\imagePlayer\build.xml" />
@@ -144,7 +144,7 @@
     <Content Include="widget\imagePlayer\style\assetPlayer\jquery.mobile-1.2.0.css" />
     <Content Include="widget\imagePlayer\style\assetPlayer\screen.add.css" />
     <Content Include="widget\imagePlayer\style\base\screen.add.css" />
-    <Content Include="widget\imagePlayer\style\screen.css.add" />
+    <Content Include="widget\imagePlayer\style\screen.add.css" />
     <Content Include="widget\imagePlayer\style\twoColumn\screen.add.css" />
     <Content Include="widget\imagePlayer\template_build.xml" />
     <None Include="JS_Client_TemporaryKey.pfx" />

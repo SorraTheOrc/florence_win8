@@ -6,7 +6,7 @@ framework for building accessible web applications using W3C Widgets.
 
 The related florence_widgets repository contains a number of test
 widgets that can be used in the Windows 8 client. To deploy them to
-this client before building runt he following:
+this client before building run the following:
 
 cd ../florence_widget
 build win8

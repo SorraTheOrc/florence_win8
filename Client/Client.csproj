@@ -100,13 +100,6 @@
     <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
-    <ProjectReference Include="..\..\wookie\connector\CSharp\Win8\WookieService\WookieService.csproj">
-      <Project>{50852744-6c5a-4b66-b3b8-5a02acbb1272}</Project>
-      <Name>WookieService</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>

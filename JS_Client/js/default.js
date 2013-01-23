@@ -7,6 +7,7 @@
 
     var activation = Windows.ApplicationModel.Activation;
     var nav = WinJS.Navigation;
+    app.widgetList = new WinJS.Binding.List(); // The widgets we are presenting to the user
 
     /// FIXME: this is a nasty hack to work around a security feature
     /// we shouldn't be working around security features!
@@ -25,7 +26,6 @@
     });
 
     app.addEventListener("activated", function (args) {
-        app.widgetList = new WinJS.Binding.List();
         WidgetDataSource.getWidgetsAsync().then(function () {
             WidgetDataSource.widgets.forEach(function (widget, index) {
                 app.widgetList.push(widget);

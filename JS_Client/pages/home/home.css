@@ -3,6 +3,11 @@
     margin-right: 120px;
 }
 
+.home-css {
+    width:310px;
+    height:310px;
+}
+
 @media screen and (-ms-view-state: snapped) {
     .homepage section[role=main] {
         margin-left: 20px;

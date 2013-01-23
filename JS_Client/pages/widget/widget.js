@@ -3,10 +3,11 @@
 (function () {
     "use strict";
 
-    WinJS.UI.Pages.define("/pages/widget/widget.html", {
+    var ControlConstructor = WinJS.UI.Pages.define("/pages/widget/widget.html", {
         // This function is called whenever a user navigates to this page. It
         // populates the page elements with the app's data.
         ready: function (element, options) {
+            /*
             var widgetFrame = document.getElementById("widgetFrame");
             var height = document.documentElement.clientHeight;
             widgetFrame.height = height;
@@ -15,6 +16,7 @@
             } else {
                 widgetFrame.src = "ms-appx-web:///widget/audioPlayer/index.html";
             }
+            */
         },
 
         unload: function () {
@@ -27,4 +29,12 @@
             // TODO: Respond to changes in viewState.
         }
     });
+
+    // The following lines expose this control constructor as a global.
+    // This lets you use the control as a declarative control inside the
+    // data-win-control attribute.
+    WinJS.Namespace.define("Controls_PageControls", {
+        WidgetPageControl: ControlConstructor
+    });
+
 })();

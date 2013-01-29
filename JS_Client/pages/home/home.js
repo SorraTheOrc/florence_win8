@@ -16,9 +16,6 @@
             widgetListView.itemDataSource = widgetList.dataSource;
             widgetListView.loadingBehavior = "incremental";
             widgetListView.selectionMode = "single";
-            widgetListView.oniteminvoked = function (e) {
-                console.log("Clicked: " + e);
-            };
         }
     });
 })();

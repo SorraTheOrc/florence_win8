@@ -2,7 +2,7 @@
     widgets: [],
 
     //
-    // Get available widget configuraitons as JSON.
+    // Load the widget definitions for all available widgets.
     //
     getWidgetsAsync: function () {
         return new WinJS.Promise(function (complete, error) {
@@ -14,7 +14,7 @@
                     widgetFolder.getFoldersAsync().then(function (widgets) {
                         var idx = 0;
                         while (idx < widgets.size) {
-                            confPromises[idx] = WidgetDataSource.getWidgetConfigAsync(widgets[idx]).then(function (widget) {
+                            confPromises[idx] = WidgetDataSource._getWidgetConfigAsync(widgets[idx]).then(function (widget) {
                                 WidgetDataSource.widgets.push(widget);
                             });
                             idx += 1;
@@ -34,7 +34,7 @@
      * Given a widget folder load and parse the config.xml file.
      * Return a JSON representation of the widget config.
      */
-    getWidgetConfigAsync: function (widgetFolder) {
+    _getWidgetConfigAsync: function (widgetFolder) {
         return new WinJS.Promise(function (complete) {
             widgetFolder.getFileAsync("config.xml").then(function (configFile) {
                 Windows.Storage.FileIO.readTextAsync(configFile).done(function (confXML) {
@@ -53,5 +53,20 @@
                 });
             });
         });
+    },
+
+    /**
+     * Get the local path for a widget.
+     */
+    getLocalPath: function (url) {
+        // find the widget by the url
+        var idx = 0;
+        for (idx=0;i<WidgetDataSource.widgets.length;idx++) {
+            if (WidgetDataSource.widget[idx].uid == url) {
+                break;
+            }
+        };
+        // return the path
+        return WidgetDataSource.widgets[i].src;
     }
 }

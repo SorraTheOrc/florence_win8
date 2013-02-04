@@ -67,7 +67,15 @@
 
     function receiveMessage(e) {
         if (e.origin === "ms-appx-web://" + document.location.host) {
-            WinJS.Navigation.navigate("/pages/widget/widget.html", e.data);
+            // Act on message from HTML in iFrame
+            // for now a simple switch will do
+            var msg = e.data;
+            if (msg.message === "goHome") {
+                WinJS.Navigation.navigate("/pages/home/home.html", e.data);
+            }
+            else if (msg.message === "openUrl") {
+                WinJS.Navigation.navigate("/pages/widget/widget.html", msg.url);
+            }
         }
     }
         

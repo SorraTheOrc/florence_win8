@@ -14,11 +14,10 @@
                 // FIXME: remove hard coding of paths and retrieve from application
                 if (uri.indexOf("Pomodoro") !== -1) {
                     widgetFrame.src = "ms-appx-web:///widget/Pomodoro/index.html";
-                } else if (uri.indexOf("image") !== -1) {
-                    widgetFrame.src = "ms-appx-web:///widget/imagePlayer/index.html";
                 } else {
-                    widgetFrame.src = "ms-appx-web:///widget/audioPlayer/index.html";
-                }                
+                    var widgetName = uri.toString().split("/").pop();
+                    widgetFrame.src = "ms-appx-web:///widget/"+widgetName+"/index.html";
+                }     
             }
         },
 

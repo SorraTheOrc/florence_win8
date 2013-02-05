@@ -68,13 +68,16 @@
     function receiveMessage(e) {
         if (e.origin === "ms-appx-web://" + document.location.host) {
             // Act on message from HTML in iFrame
-            // for now a simple switch will do
+            // For now simple switch an process wil ldo - later we should dispatch.
             var msg = e.data;
-            if (msg.message === "goHome") {
-                WinJS.Navigation.navigate("/pages/home/home.html", e.data);
-            }
-            else if (msg.message === "openUrl") {
-                WinJS.Navigation.navigate("/pages/widget/widget.html", msg.url);
+            if (msg.message === "openUrl") {
+                // special case URLS
+                if (msg.url === '/home') {
+                    WinJS.Navigation.navigate("/pages/home/home.html", e.data);
+                }
+                else {
+                    WinJS.Navigation.navigate("/pages/widget/widget.html", msg.url);
+                };
             }
         }
     }

@@ -110,7 +110,6 @@
     <Content Include="widget\audioPlayer\template_build.xml" />
     <Content Include="widget\imagePlayer\build.xml" />
     <Content Include="widget\imagePlayer\config.xml" />
-    <Content Include="widget\imagePlayer\content.html" />
     <Content Include="widget\imagePlayer\content_albums.html" />
     <Content Include="widget\imagePlayer\content_albums_secondary.html" />
     <Content Include="widget\imagePlayer\content_footer.html" />

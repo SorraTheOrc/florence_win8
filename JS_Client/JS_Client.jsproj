@@ -111,7 +111,6 @@
     <Content Include="widget\audioPlayer\style\light.css" />
     <Content Include="widget\audioPlayer\style\minimalControls.css" />
     <Content Include="widget\audioPlayer\style\noIcon.css" />
-    <Content Include="widget\audioPlayer\style\noImages.css" />
     <Content Include="widget\audioPlayer\style\screen.add.css" />
     <Content Include="widget\audioPlayer\style\twoColumn\screen.add.css" />
     <Content Include="widget\audioPlayer\template_build.xml" />
@@ -163,7 +162,6 @@
     <Content Include="widget\imagePlayer\style\light.css" />
     <Content Include="widget\imagePlayer\style\minimalControls.css" />
     <Content Include="widget\imagePlayer\style\noIcon.css" />
-    <Content Include="widget\imagePlayer\style\noImages.css" />
     <Content Include="widget\imagePlayer\style\screen.add.css" />
     <Content Include="widget\imagePlayer\style\twoColumn\screen.add.css" />
     <Content Include="widget\imagePlayer\template_build.xml" />
@@ -208,7 +206,6 @@
     <Content Include="widget\webPlayer\style\light.css" />
     <Content Include="widget\webPlayer\style\minimalControls.css" />
     <Content Include="widget\webPlayer\style\noIcon.css" />
-    <Content Include="widget\webPlayer\style\noImages.css" />
     <Content Include="widget\webPlayer\style\screen.add.css" />
     <Content Include="widget\webPlayer\style\twoColumn\screen.add.css" />
     <Content Include="widget\webPlayer\template_build.xml" />
